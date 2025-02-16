@@ -4,6 +4,13 @@ trigger:
 variables:
   buildConfiguration: 'Release'
 
+resources:
+  repositories:
+    - repository: mslearn-tailspin-spacegame-web-deploy
+      type: github
+      name: yelledotcom/mslearn-tailspin-spacegame-web-deploy
+      endpoint: spacegame_deploywith_PAT
+
 stages:
 - stage: 'Build'
   displayName: 'Build the web application'
@@ -20,6 +27,11 @@ stages:
       dotnetSdkVersion: '6.x'
 
     steps:
+
+    - checkout:  mslearn-tailspin-spacegame-web-deploy
+      persistCredentials: true
+      clean: true
+
     - task: UseDotNet@2
       displayName: 'Use .NET SDK $(dotnetSdkVersion)'
       inputs:
