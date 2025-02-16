@@ -5,6 +5,13 @@ variables:
   buildConfiguration: 'Release'
   releaseBranchName: 'release'
 
+resources:
+  repositories:
+    - repository: mslearn-tailspin-spacegame-web-deploy
+      type: github
+      name: yelledotcom/mslearn-tailspin-spacegame-web-deploy
+      endpoint: spacegame_deploywith_PAT
+
 schedules:
 - cron: '0 0 * * *'
   displayName: 'Deploy every day at 12 A.M.'
@@ -30,7 +37,8 @@ stages:
 
     steps:
 
-    - checkout: self
+    - checkout:  mslearn-tailspin-spacegame-web-deploy
+      persistCredentials: true
       clean: true
 
     - task: UseDotNet@2
