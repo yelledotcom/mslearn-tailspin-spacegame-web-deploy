@@ -29,6 +29,10 @@ stages:
       dotnetSdkVersion: '6.x'
 
     steps:
+
+    - checkout: self
+      clean: true
+
     - task: UseDotNet@2
       displayName: 'Use .NET SDK $(dotnetSdkVersion)'
       inputs:
