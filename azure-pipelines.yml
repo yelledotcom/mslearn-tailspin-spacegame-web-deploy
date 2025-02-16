@@ -16,11 +16,12 @@ resources:
     - repository: mslearn-tailspin-spacegame-web-deploy
       type: github
       name: yelledotcom/mslearn-tailspin-spacegame-web-deploy
-      endpoint: sc_spacegame-web-deploy
+      endpoint: spacegame_deploywith_PAT
 
 steps:
 
-- checkout: self
+- checkout:  mslearn-tailspin-spacegame-web-deploy
+  persistCredentials: true
   clean: true
 
 - task: UseDotNet@2
