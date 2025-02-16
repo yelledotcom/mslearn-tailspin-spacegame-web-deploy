@@ -11,6 +11,13 @@ variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '6.x'
 
+resources:
+  repositories:
+    - repository: mslearn-tailspin-spacegame-web-deploy
+      type: github
+      name: yelledotcom/mslearn-tailspin-spacegame-web-deploy
+      endpoint: sc_spacegame-web-deploy
+
 steps:
 
 - checkout: self
